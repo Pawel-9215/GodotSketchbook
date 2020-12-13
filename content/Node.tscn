@@ -1,6 +1,72 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Node.gd" type="Script" id=1]
+[ext_resource path="res://content/Node.gd" type="Script" id=1]
+[ext_resource path="res://resources/background.png" type="Texture" id=2]
+[ext_resource path="res://resources/PTMono-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://resources/button_2.png" type="Texture" id=4]
+[ext_resource path="res://resources/button_1.png" type="Texture" id=5]
 
-[node name="Node" type="Node"]
+[sub_resource type="DynamicFont" id=1]
+size = 36
+use_mipmaps = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+use_mipmaps = true
+font_data = ExtResource( 3 )
+
+[node name="LonyLips" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="DisplayText" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 28.0
+margin_top = 32.0
+margin_right = -28.0
+margin_bottom = -162.0
+custom_fonts/font = SubResource( 1 )
+text = "Placeholder"
+autowrap = true
+
+[node name="PlayerText" type="LineEdit" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = -79.0
+margin_right = -139.0
+margin_bottom = -24.0
+custom_fonts/font = SubResource( 2 )
+
+[node name="SubmitText" type="TextureButton" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 901.267
+margin_top = 476.081
+margin_right = -21.7334
+margin_bottom = -21.9191
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 4 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_entered" from="PlayerText" to="." method="_on_PlayerText_text_entered"]
+[connection signal="pressed" from="SubmitText" to="." method="_on_SubmitText_pressed"]
