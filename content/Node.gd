@@ -43,5 +43,5 @@ func is_story_done():
 func tell_story():
 	$DisplayText.text = story % player_words
 	
-func prompt_player
-	prompt = "May I have"
+func prompt_player():
+	var prompt = "May I have"
