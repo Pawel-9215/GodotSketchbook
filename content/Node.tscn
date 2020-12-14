@@ -53,6 +53,9 @@ margin_top = -79.0
 margin_right = -139.0
 margin_bottom = -24.0
 custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SubmitText" type="TextureButton" parent="."]
 anchor_right = 1.0
@@ -68,5 +71,6 @@ stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="text_changed" from="PlayerText" to="." method="_on_PlayerText_text_changed"]
 [connection signal="text_entered" from="PlayerText" to="." method="_on_PlayerText_text_entered"]
 [connection signal="pressed" from="SubmitText" to="." method="_on_SubmitText_pressed"]
