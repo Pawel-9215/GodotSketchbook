@@ -1,0 +1,14 @@
+[
+	{
+		"prompts": ["Time", "Plural", "Adjective"],
+		"story" : "%s a lot of %s went missing after a %s car crash"
+	},
+	{
+		"prompts": ["Name", "Span of time", "Plural - Forest Animals"],
+		"story" : "%s was lost in the deep forest. After %s of searching she found a couple of %s having sex"
+	},
+	{
+		"prompts": ["Unit of time", "Male name", "Person", "place"],
+		"story" : "Many %s later, %s was still convinced that it was %s who humped his leg when he was tied and blindfolded in a %s"
+	},
+]

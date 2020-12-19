@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://content/Node.gd" type="Script" id=1]
 [ext_resource path="res://resources/background.png" type="Texture" id=2]
 [ext_resource path="res://resources/PTMono-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://resources/button_2.png" type="Texture" id=4]
 [ext_resource path="res://resources/button_1.png" type="Texture" id=5]
+[ext_resource path="res://content/Story.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
@@ -71,6 +72,18 @@ stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="StoryBook" type="Node" parent="."]
+
+[node name="Story0" type="Node" parent="StoryBook"]
+script = ExtResource( 6 )
+prompts = PoolStringArray( "Name", "Plural", "Place" )
+story = "Sorry - Said %s, We don't sell used %s in here. This is a %s."
+
+[node name="Story1" type="Node" parent="StoryBook"]
+script = ExtResource( 6 )
+prompts = PoolStringArray( "Time", "Food - plural", "Event", "Person" )
+story = "%s, I ate way too much %s and felt sick, so I couldn't attend %s, that was organised in memory of %s"
 [connection signal="text_changed" from="PlayerText" to="." method="_on_PlayerText_text_changed"]
 [connection signal="text_entered" from="PlayerText" to="." method="_on_PlayerText_text_entered"]
 [connection signal="pressed" from="SubmitText" to="." method="_on_SubmitText_pressed"]

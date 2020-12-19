@@ -3,24 +3,28 @@ extends Control
 var player_words = []
 var last_input = ""
 			
-var template = [{
-		"prompts":["Time", "Food", "Event", "Person"],
-		"story":"%s I ate too much %s"+\
-			" and felt sick. So I couldn't attend "+\
-			"%s, that was organized in memory of %s"
-		},
-		{
-		"prompts":["Name", "Adjective", "Noun", "verb", "Adjective"],
-		"story":"%s was very %s" +\
-			" and saw %s. I couldn't "+\
-			"%s him, and it was very %s"
-		},
-		]
+
 		
-var current_story
+var current_story = {}
 
 func pick_story():
-	current_story = template[randi()%2]
+	
+	var stories = get_from_json("resources/StoryBook.json")
+	current_story = stories[randi()%len(stories)]
+	
+#	var stories = $StoryBook.get_child_count()
+#	var selected_story = randi()%stories
+#	current_story.prompts = $StoryBook.get_child(selected_story).prompts
+#	current_story.story = $StoryBook.get_child(selected_story).story
+	# 
+	
+func get_from_json(filename):
+	var file = File.new()
+	file.open(filename, File.READ)
+	var text = file.get_as_text()
+	var data = parse_json(text)
+	file.close()
+	return data
 
 func _ready():
 	
